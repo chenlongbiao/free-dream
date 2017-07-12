@@ -6,9 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,8 +41,9 @@ public class UserController {
      * @param
      * @return 0  失败   1   成功
      */
+    @CrossOrigin
     @RequestMapping(value = "signUp")
-    public Map<String,String> signUp(User user) {
+    public Map<String,String> signUp(@RequestBody User user) {
         logger.info(user+"");
         Map<String, String> map = new HashMap<>();
         String success = "0";
@@ -57,6 +56,7 @@ public class UserController {
 //            user.setMobile(password);
 //            user.setMobile(username);
             success = userService.signUp(user);
+//            success="1";
             map.put("success", success);
             logger.info("---------------");
             logger.info("注册用户结果："+success);
