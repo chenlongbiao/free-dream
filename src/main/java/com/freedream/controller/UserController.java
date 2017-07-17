@@ -44,7 +44,7 @@ public class UserController {
     @CrossOrigin
     @RequestMapping(value = "signUp")
     public Map<String,String> signUp(@RequestBody User user) {
-        logger.info(user+"");
+        System.out.println(user+"");
         Map<String, String> map = new HashMap<>();
         String success = "0";
         try {
@@ -55,9 +55,9 @@ public class UserController {
 //            user.setMobile(mobile);
 //            user.setMobile(password);
 //            user.setMobile(username);
-            success = userService.signUp(user);
-//            success="1";
-            map.put("success", success);
+//            success = userService.signUp(user);
+            success="1";
+            map.put("resState", success);
             logger.info("---------------");
             logger.info("注册用户结果："+success);
             logger.info("---------------");
@@ -66,7 +66,7 @@ public class UserController {
             logger.info("---------------");
             logger.info("注册用户出现异常："+e);
             logger.info("---------------");
-            map.put("success", success);
+            map.put("resState", success);
             return map;
         }
     }
