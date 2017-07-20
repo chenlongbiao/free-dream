@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.POST;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by 陈龙飚 on 2017/7/11 0011.
  */
+@CrossOrigin
 @RestController
 public class UserController {
 
@@ -41,8 +43,7 @@ public class UserController {
      * @param
      * @return 0  失败   1   成功
      */
-    @CrossOrigin
-    @RequestMapping(value = "signUp")
+    @RequestMapping(value = "/signUp")
     public Map<String,String> signUp(@RequestBody User user) {
         System.out.println(user+"");
         Map<String, String> map = new HashMap<>();
