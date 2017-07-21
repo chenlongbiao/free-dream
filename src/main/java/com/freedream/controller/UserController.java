@@ -45,7 +45,6 @@ public class UserController {
      */
     @RequestMapping(value = "/signUp")
     public Map<String,String> signUp(@RequestBody User user) {
-        System.out.println(user+"");
         Map<String, String> map = new HashMap<>();
         String success = "0";
         try {
@@ -59,9 +58,6 @@ public class UserController {
 //            success = userService.signUp(user);
             success="1";
             map.put("resState", success);
-            logger.info("---------------");
-            logger.info("注册用户结果："+success);
-            logger.info("---------------");
             return map;
         } catch (Exception e) {
             logger.info("---------------");

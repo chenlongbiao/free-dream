@@ -14,7 +14,7 @@ public class addInterceptor extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        System.out.println("-----------------------------------------");
-        registry.addInterceptor(new testInteper()).addPathPatterns("/**");
+//        System.out.println("-----------------------------------------");
+//        registry.addInterceptor(new testInteper()).addPathPatterns("/**");
     }
 }
